@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Netflix</title>
+  <link rel="stylesheet" href="proj.css">
+
+   
+  <link rel="shortcut icon" 
+        href="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" 
+        type="image/x-icon">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+
+<body>
+  <div class="pag">
+    <nav class="logo">
+      <div class="marca">
+       
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg"
+             alt="Netflix Logo" width="150" class="img">
+
+        <div class="direita">
+          <button id="langBtn">EN</button>
+          <button value="#" class="Entra">Entrar</button>
+        </div>
+      </div>
+    </nav>
+
+    <div class="t1">
+      <h1 id="title1">Filmes, séries e muito mais. Sem limites.</h1>
+      <h2 id="title2">Assista onde quiser. Cancele quando quiser.</h2>
+      <h3 id="title3">Pronto para assistir? Informe seu email para criar ou reiniciar sua assinatura.</h3>
+      <form action="#">
+        <div class="email">
+          <input type="email" name="email" placeholder="E-mail">
+          <button><a href="#" id="ctaBtn">Vamos lá</a></button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    const texts = {
+      pt: {
+        entrar: "Entrar",
+        t1: "Filmes, séries e muito mais. Sem limites.",
+        t2: "Assista onde quiser. Cancele quando quiser.",
+        t3: "Pronto para assistir? Informe seu email para criar ou reiniciar sua assinatura.",
+        botao: "Vamos lá"
+      },
+      en: {
+        entrar: "Sign In",
+        t1: "Movies, series and much more. No limits.",
+        t2: "Watch anywhere. Cancel anytime.",
+        t3: "Ready to watch? Enter your email to create or restart your membership.",
+        botao: "Let's go"
+      }
+    };
+
+    let currentLang = "pt";
+
+    document.getElementById("langBtn").addEventListener("click", () => {
+      currentLang = currentLang === "pt" ? "en" : "pt";
+
+      document.querySelector(".Entra").textContent = texts[currentLang].entrar;
+      document.getElementById("title1").textContent = texts[currentLang].t1;
+      document.getElementById("title2").textContent = texts[currentLang].t2;
+      document.getElementById("title3").textContent = texts[currentLang].t3;
+      document.getElementById("ctaBtn").textContent = texts[currentLang].botao;
+
+     
+      document.getElementById("langBtn").textContent = currentLang === "pt" ? "EN" : "PT";
+
+     
+      document.documentElement.lang = currentLang === "pt" ? "pt-BR" : "en";
+    });
+  </script>
+</body>
+</html>
